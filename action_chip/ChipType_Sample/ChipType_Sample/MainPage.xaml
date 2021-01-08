@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+             xmlns:local="clr-namespace:ChipType_Sample"
+             x:Class="ChipType_Sample.MainPage">
+    <ContentPage.BindingContext>
+        <local:ViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <local:AnimationConverter x:Key="AnimationConverter"/>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="To" FontSize="20" Margin="10,10,10,0"/>
+            <Grid>
+                <buttons:SfChipGroup 
+                                    VerticalOptions="Center" 
+                                    x:Name="inputChipGroup" ChipImageWidth="60" 
+                                    ItemsSource="{Binding InputItems,Mode=TwoWay}" DisplayMemberPath="PersonName" 
+                                    ImageMemberPath="PersonImage" ShowIcon="True"
+                                    Type="Action" Command="{Binding ActionCommand}" 
+                                    ChipPadding="8,8,0,0">
+
+                    <buttons:SfChipGroup.ChipLayout>
+                        <FlexLayout 
+                                        HorizontalOptions="Start" 
+                                        VerticalOptions="Center" 
+                                        Direction="Row" 
+                                        Wrap="Wrap" 
+                                        JustifyContent="Start" 
+                                        AlignContent="Start" 
+                                        AlignItems="Start"/>
+                    </buttons:SfChipGroup.ChipLayout>
+                </buttons:SfChipGroup>
+                <Grid x:Name="dialog" HorizontalOptions="Start" Margin="20,20,0,0"
+                      VerticalOptions="Start" WidthRequest="200" HeightRequest="60" BackgroundColor="Black" 
+                      IsVisible="{Binding IsOpen, Converter={StaticResource AnimationConverter},ConverterParameter={x:Reference dialog}}" 
+                      >
+                    <Grid BindingContext="{Binding ModelProperty}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="5*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+                    <Image Source="{Binding PersonImage}" Grid.Column="0" Margin="5"/>
+                    <Grid Grid.Column="1" VerticalOptions="Center">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="5*"/>
+                            <RowDefinition Height="5*"/>
+                            
+                        </Grid.RowDefinitions>
+                        <Label Grid.Row="0" Text="{Binding PersonName}" VerticalOptions="Center" TextColor="White"/>
+
+                        <Label Grid.Row="1" Text="{Binding PersonMailId}" VerticalOptions="Center" TextColor="LightGray"/>
+                    </Grid>
+                    <Image Grid.Column="2" x:Name="CloseImage" VerticalOptions="Center" HorizontalOptions="Center">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                        </Image.GestureRecognizers>
+                        </Image>
+                    </Grid>
+                </Grid>
+            </Grid>
+            <Label Text="Re: Vocation Request" FontAttributes="Bold" FontSize="20" Margin="10,10,0,0" TextColor="Black"/>
+            <Label Text="Message" FontSize="20" Margin="10,0,0,0"/>
+            <Entry/>
+        </StackLayout>
+    </ContentPage.Content>
+
+</ContentPage>

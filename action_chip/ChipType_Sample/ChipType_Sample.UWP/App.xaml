@@ -1,0 +1,8 @@
+﻿<Application
+    x:Class="ChipType_Sample.UWP.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ChipType_Sample.UWP"
+    RequestedTheme="Light">
+
+</Application>
