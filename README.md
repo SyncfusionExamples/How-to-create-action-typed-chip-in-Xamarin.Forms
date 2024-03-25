@@ -1,6 +1,6 @@
 # How-to-create-a-Chips-sample
 This repository sample explains how to create a chips sample in Xamarin.Forms 
-# Getting Started with Chip sample
+## Getting Started with Chip sample
 Step 1: Add the NuGet to the project and add the namespace as shown in the following code sample:
 
 **[XAML]**
@@ -36,7 +36,7 @@ public GettingStarted()
 ```
 
 
-# How-to-create-action-typed-chip-in-Xamarin.Forms
+## How-to-create-action-typed-chip-in-Xamarin.Forms
 Action type of SfChipGroup, executes the [`Command`](https://help.syncfusion.com/xamarin/chips/customization#command) when clicking the chip in SfChipGroup. On its [`Command`](https://help.syncfusion.com/xamarin/chips/customization#command) action, we can do our desired action.
 
 [`Command`](https://help.syncfusion.com/xamarin/chips/customization#command) will execute only for Action typed SfChipGroup.
